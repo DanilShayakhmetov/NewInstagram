@@ -1,7 +1,7 @@
 from flask import Flask
 from InstagramLib import GetImages
 from flask import render_template
-
+from flask import request
 app = Flask(__name__)
 
 
@@ -12,12 +12,18 @@ def hello_world():
 
 
 
-@app.route('/image')
-def RenderImages():
-    inputArray = GetImages.GetImageJson('zuck')
+# @app.route('/image')
+# def RenderImages():
+#
+#     inputArray = GetImages.GetImageJson('zuck')
+#
+#
+#     return render_template('imageCatalog.html', Images=inputArray)
+#
+#
 
 
-    return render_template('imageCatalog.html', Images=inputArray)
+
 
 
 
