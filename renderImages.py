@@ -15,7 +15,7 @@ def hello_world():
 # @app.route('/image')
 # def RenderImages():
 #
-#     inputArray = GetImages.GetImageJson('zuck')
+#     inputArray = GetImages.GetImageJson('zuck', 20)
 #
 #
 #     return render_template('imageCatalog.html', Images=inputArray)

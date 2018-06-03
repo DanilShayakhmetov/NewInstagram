@@ -5,14 +5,14 @@ import requests
 
 # Добавить получение по юзернейму
 
-def GetHashImages(username):
+def GetHashImages(username, count):
     userStr = str(username)
     agent=instagram.Agent()
     account=instagram.Account(userStr)
-
+    numberOfPict = int(count)
     agent.update(account)
 
-    media=agent.getMedia(account, count=10)
+    media=agent.getMedia(account, count=numberOfPict)
     publishHashArray = []
     for m in media:
         publishHashArray.append(m)
@@ -26,10 +26,10 @@ def GetHashImages(username):
 
 # GetHashImages()
 
-def GetEmbeded(username):
+def GetEmbeded(username, count):
     userStr = str(username)
     endpointEmbeded = 'https://api.instagram.com/oembed?url=http://instagr.am/p/'
-    postsHash = GetHashImages(userStr)
+    postsHash = GetHashImages(userStr, count)
     embededArray = []
     for post in postsHash:
         postStr = str(post)
@@ -42,9 +42,9 @@ def GetEmbeded(username):
 # GetImages()
 
 
-def GetImageJson(username):
+def GetImageJson(username, count):
     userStr = str(username)
-    EmbededUrlsArray = GetEmbeded(userStr)
+    EmbededUrlsArray = GetEmbeded(userStr, count)
     imageArray = []
     for urls in EmbededUrlsArray:
         urlsStr = str(urls)
@@ -55,4 +55,4 @@ def GetImageJson(username):
     return imageArray
 
 
-# GetImageJson('zuck')
+# GetImageJson('loginovskikh.a')

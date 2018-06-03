@@ -13,7 +13,7 @@ def result():
       result = request.form
       Name = str(result['Name'])
       Number  = result['Number']
-      inputArray = GetImages.GetImageJson(Name)
+      inputArray = GetImages.GetImageJson(Name, Number)
 
       # inputArray = GetImages.GetImageJson('zuck')
 
